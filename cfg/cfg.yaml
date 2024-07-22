@@ -1,0 +1,16 @@
+hydra:
+  output_subdir: null
+
+save_model_path: model_weights/model_weights.pt
+
+dataset:
+  root: ../data 
+  dataset: Flowers102 
+
+train:
+  epochs: 10
+  lr: 0.005
+  weight_decay: 5e-3
+
+show_model_summary: True
+num_classes : 20
