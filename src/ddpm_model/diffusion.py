@@ -168,7 +168,6 @@ class UNet(nn.Module):
         
         return x
 
-
 class FinalLayer(nn.Module):
     def __init__(self, in_channels, out_channels):
         super().__init__()
@@ -190,6 +189,7 @@ class Diffusion(nn.Module):
     
     def forward(self, latent, context, time):
         time = self.time_embedding(time)
+        # the unet's role is to identify noise, and the sampler will then remove the noise based on that.
         output = self.unet(latent, context, time)
         output = self.final(output)
         return output
